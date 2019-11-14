@@ -1,6 +1,5 @@
-from django import forms
 from django.forms import ModelForm
-from .models import Pizza, Ingredient, Size
+from .models import Pizza
 
 
 class PizzaForm(ModelForm):
