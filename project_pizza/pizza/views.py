@@ -1,6 +1,5 @@
-from django.http import HttpResponse
 from .forms import PizzaForm
-from django.views.generic import ListView, FormView
+from django.views.generic import ListView, FormView, UpdateView
 from .models import Pizza
 
 
@@ -20,9 +19,12 @@ class PizzaFormView(FormView):
     success_url = '/'
 
     def form_valid(self, form):
-        form.create_objects()
+        form.save()
         return super().form_valid(form)
 
-    def form_invalid(self, form):
-        print("ERROR")
-        return super().form_invalid(form)
+
+class PizzaUpdateView(UpdateView):
+    form_class = PizzaForm
+    model = Pizza
+    template_name = 'form_pizza_add.html'
+    success_url = '/'

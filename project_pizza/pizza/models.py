@@ -15,6 +15,7 @@ class Size(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=40)
     price = models.DecimalField(max_digits=7, decimal_places=2, default=0)
+
     def __str__(self):
         return self.name
 
@@ -28,9 +29,10 @@ class Pizza(models.Model):
     name = models.CharField(max_length=40)
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=7, decimal_places=2, default=0)
-    ingredient = models.ManyToManyField(Ingredient,)
-    description = models.CharField(max_length = 300)
+    ingredient = models.ManyToManyField(Ingredient, )
+    description = models.CharField(max_length=300)
     available = models.BooleanField(default=True)
+
     def __str__(self):
         return self.name
 
