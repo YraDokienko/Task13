@@ -5,14 +5,16 @@
     <title>Pizzas</title>
 </head>
 <body>
-    <h1></h1>
+<h1><em> Список пицц </em></h1>
+    <hr color="red">
     <ul>
         {% for pizza in data %}
-        <li> {{pizza.name}} : цена = {{pizza.price}} грн. <p></li>
+        <li> {{pizza.name}} : цена = {{pizza.price}} грн. <a href="/pizzaform/{{pizza.id}}/edit"> - edit </a> <p></li>
         {%endfor%}
     </ul>
     <form action="/pizzaform/">
         <button> Добавить пиццу </button>
     </form>
+    <hr color="red">
 </body>
 </html>
